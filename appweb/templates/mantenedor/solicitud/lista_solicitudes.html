@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<script>
+    function eliminarProfesional(rut)
+    {
+        Swal.fire({
+            "title": "Advertencia",
+            "text": "¿Está seguro que quiere eliminar el Profesional?",
+            "icon": "question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Si, Eliminar"
+        }).then(function(result){
+            if(result.isConfirmed)
+            {
+                window.location.href= "/mantenedor/eliminar_profesional/"+rut+"/";
+            }
+        })
+    }
+</script>
+<div class="container mt-5">
+    <div class="text-center">
+        <h3>Listado de Solicitudes</h3><br>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for s in mis_solicitudes %}
+        <tr>
+            <th scope="row">{{s.nombre}}</th>
+            <td>{{s.email}}</td>
+            <td>(+1){{s.telefono}}</td>
+            <td>{{s.fecha}}</td>
+            <td>
+                <a href="{% url 'detalle_solicitud' s.pk %}" class="btn btn-primary btn-sm">Detalle</a>
+                <a href="#" class="btn btn-success btn-sm">Aceptar</a>
+                <a href="#" class="btn btn-danger btn-sm">Rechazar</a>
+            </td>
+        </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+{% endblock %}    

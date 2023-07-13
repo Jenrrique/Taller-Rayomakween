@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+    <div class="container mt-5">
+        <div class="text-center">
+            <img src="{% static 'imagenes/solicitud_img.jpg' %}" style="max-width: 600px;">
+        </div>
+        {{mensaje}}
+            <h2 class="mt-4">Solicitud</h2>
+            <form id="formularioSolicitud" action="" method="POST">
+                {% csrf_token %}
+                {{form_solicitud | crispy}}
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+    </div>
+
+{% endblock %}

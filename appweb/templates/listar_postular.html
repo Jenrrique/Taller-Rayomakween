@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h3>Listado de Curriculums</h3><br>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Teléfono</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for c in mis_postular %}
+        <tr>
+            <th scope="row">{{c.titulo}}</th>
+            <td>{{c.nombre}}</td>
+            <td>{{c.apellido}}</td>
+            <td>{{c.email}}</td>
+            <td>(+1){{c.telefono}}</td>
+            <td>
+                <a href="{% url 'detalle_postular' c.pk %}" class="btn btn-primary btn-sm">Detalle</a>
+            </td>
+        </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>   
+{% endblock %}    

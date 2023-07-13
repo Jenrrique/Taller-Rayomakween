@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<script>
+    function eliminarProfesional(rut)
+    {
+        Swal.fire({
+            "title": "Advertencia",
+            "text": "¿Está seguro que quiere eliminar el Profesional?",
+            "icon": "question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Si, Eliminar"
+        }).then(function(result){
+            if(result.isConfirmed)
+            {
+                window.location.href= "/mantenedor/eliminar_profesional/"+rut+"/";
+            }
+        })
+    }
+</script>
+<div class="container mt-5">
+    <div class="text-center">
+        <h3>Listado de profesionales</h3><br>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Rut</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for p in mis_profesionales %}
+        <tr>
+            <th scope="row">{{p.rut}}</th>
+            <td>{{p.nombre}}</td>
+            <td>{{p.apellido}}</td>
+            <td>{{p.edad}}</td>
+            <td>{{p.especialidad}}</td>
+            <td>
+                <a href="{% url 'editar_profesional' p.rut %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="#" onclick="eliminarProfesional('{{p.rut}}')" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>   
+{% endblock %}    

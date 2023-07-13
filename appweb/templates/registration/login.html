@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="container mt-5">
+    <div class="text-center">
+        
+    </div>
+
+        <h2 class="mt-4">Login</h2>
+        <form id="formularioLogin" action="" method="POST">
+            {% csrf_token %}
+            {{form | crispy}}
+            
+            <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+        </form>
+</div>
+
+{% endblock %}

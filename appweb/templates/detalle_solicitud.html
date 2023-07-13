@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <div class="container" style="margin-top: 50px">
+        <div id="profesionales_excelencia" class="row">
+        <div class="cont-profesionales col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3>Solicitud {{s.nombre}}</h3><br>
+            <div class="cont-listado row">
+
+    
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="prof int">
+                    <figure>
+                        <a href="#">
+                            
+                        {% if s.foto %}
+                            <img width="370" height="450" src="{{ s.foto.url }}" class="img-responsive wp-post-image" alt="" decoding="async" loading="lazy" style="border: 1px solid #000;"> 
+                        </a>
+                        {% else %}
+                            <img width="370" height="450" src="{% static 'imagenes/persona1.3.jpg' %}" class="img-responsive wp-post-image" alt="" decoding="async" loading="lazy" style="border: 1px solid #000;"> 
+                        </a>
+                        {% endif %}
+                    
+                    </figure>
+                    
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="prof int">
+                    <div class="details">
+                        <div class="details">
+                            <h4 class="nombre white">Información</h4><br>
+                            <p class="extracto"><strong>Fecha: </strong> {{s.fecha}}</p>
+                            <p class="rrss"><strong>Correo: </strong>{{s.email}}</p>
+                            <p class="rrss"><strong>Teléfono: </strong>{{s.telefono}}</p><br>
+                            <p class="rrss"><strong>Descripción: </strong></p>
+                            <p class="extracto">{{s.descripcion}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

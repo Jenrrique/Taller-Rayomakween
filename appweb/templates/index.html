@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+            aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item carousel-item-next carousel-item-start">
+                <img src="{% static 'imagenes/carrusel1.jpg' %}" class="bd-placeholder-img" width="100%" height="700px"/>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                    <h1 style="color: white">Consulta</h1>
+                    <p style="color: white">¿Hace cuánto tiempo no revisas a tu auto?.</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'solicitud' %}">Solicitar hora</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="{% static 'imagenes/carrusel2.jpg' %}" class="bd-placeholder-img" width="100%" height="700px"/>
+                <div class="container">
+                    <div class="carousel-caption">
+                    <h1 style="color: white">Profesionales</h1>
+                    <p style="color: white">Comprometidos con la seguridad e integración de tu vehículo.</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'solicitud' %}">Solicitar hora</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active carousel-item-start">
+                <img src="{% static 'imagenes/carrusel3.jpg' %}"  class="bd-placeholder-img" width="100%" height="700px"/>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                    <h1 style="color: white">¿Por qué revisar con nosotros?</h1>
+                    <p style="color: white">Por la calidad y transparencia de nuestros servicios.</p>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'solicitud' %}">Solicitar hora</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+
+
+        <!-- Marketing messaging and featurettes
+            ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">CAMBIO  
+                    <span class="text-body-secondary"> DE ACEITE.</span>
+                </h2>
+                <p class="lead">Es importante cuidar tu auto y estar pendiente de los niveles de aceite que este posee. Además de cambiarlo frecuentemente para así aumentar la vida útil de tu automovíl</p>
+                
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'imagenes/index1.jpg' %}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  width="500" height="500" />
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">CAMBIO
+                    <span class="text-body-secondary">  DE PASTILLAS.</span>
+                </h2>
+                <p class="lead">Las pastillas de freno son un componente muy importante para tu automóvil, es importante cambiarlas frecuentemente, ya que estas pueden evitar alguna mala pasada en tu recorrido.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="{% static 'imagenes/index2.jpg' %}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  width="500" height="500" />
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+
+{% endblock%}

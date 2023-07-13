@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <div class="container" style="margin-top: 50px">
+        <h2>Nuestros Profesionales</h2>
+        <p>Contamos con un reconocido y experimentado equipo de trabajo, ofreciendo la oportunidad a nuestros clientes de
+        acceder a avanzados e innovadores métodos con un enfoque interdisciplinario, todo en un mismo lugar.</p>
+        <div id="profesionales_excelencia" class="row">
+        <div class="cont-profesionales col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="cont-listado row">
+
+            {% for p in profesionales %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="prof int">
+                    <figure>
+                        <a href="{% url 'detalle_profesional' p.pk %}">
+
+                        {% if p.foto %}
+                            <img width="270" height="350" src="{{ p.foto.url }}" class="img-responsive wp-post-image" alt="" decoding="async" loading="lazy" style="border: 1px solid #000;"> 
+                        </a>
+                        {% else %}
+                            <img width="270" height="350" src="{% static 'imagenes/persona1.3.jpg' %}" class="img-responsive wp-post-image" alt="" decoding="async" loading="lazy" style="border: 1px solid #000;"> 
+                        </a>
+                        {% endif %}
+
+                        <h4 class="nombre white">{{p.rut}}</h4>
+                        <span class="cargo">{{p.nombre }} {{p.apellido }}</span>
+                    
+                    </figure>
+                    <div class="details">
+                        <p class="extracto">{{p.especialidad}}</p>
+                        <p class="rrss"></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        </div>
+        <a href="{% url 'agregar_profesional' %}" class="btn btn-primary btn-sm">Agregar</a>
+    </div>
+
+{% endblock %}
